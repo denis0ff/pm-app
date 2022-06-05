@@ -8,7 +8,7 @@ const authChecker: Middleware = (api: MiddlewareAPI) => (next) => (action) => {
     let message = '';
 
     if (status === 403) {
-      api.dispatch(logOut);
+      api.dispatch(logOut());
       window.history.pushState({}, '', '/home');
       message = action.payload.data.message;
     } else if (
